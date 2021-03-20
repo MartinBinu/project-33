@@ -6,6 +6,7 @@ class Particle {
             "restitution":0.4,
             "friction":0.5
             
+            
         }
 
       
