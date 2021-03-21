@@ -5,6 +5,7 @@
 
   var gameState = "start";
   var particle;
+  var particle2;
 
   var playButton;
 
@@ -13,8 +14,9 @@
   var plinkos = [];
 
   var divisionHeight = 300;
-  var stage = 0
+  var stage = 0;
   var score = 0;
+  var turn = 0;
 
   function setup() {
 
@@ -47,10 +49,8 @@
     for(var j = 50; j <=width-10; j=j+50){
       plinkos.push(new Plinko(j,375));
     }
-      
-    playButton.position(width/2 + 18,height/2 + 13)
 
-    particle = new Particle(mouseX,40,10,10);
+    playButton.position(width/2 + 18,height/2 + 13);
 
   }
   
@@ -58,6 +58,8 @@
     background("black");
     textSize(20);
     Engine.update(engine);
+
+    particle2 = new Particle2(mouseX,10,10);
 
     for (var i = 0; i < plinkos.length; i++) {  
       plinkos[i].display();
@@ -101,12 +103,19 @@
     textSize(20);
     text("Score: "+ score,width - 100,20)
 
-    mousePressed();
-
     playButton.hide();
+
+    mousePressed();
+    mouseRealeased();
   }
 }
 
 function mousePressed(){
-  particle.display(); 
+particle = new Particle2(10,40,10);
+particle.display();
+particle.controller();
+}
+
+function mouseRealeased(){
+  particle.noControl();
 }
