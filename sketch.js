@@ -73,7 +73,7 @@
     }
 
     if(gameState === "start"){
-      if(frameCpont%10===0){
+      if(frameCount%10===0){
         particles.push(new Particle(random(width/2-30, width/2+30), 10,10));
       }
       
