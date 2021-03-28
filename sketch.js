@@ -51,15 +51,12 @@
     }
 
     playButton.position(width/2 + 18,height/2 + 13);
-
   }
   
   function draw() {
     background("black");
     textSize(20);
     Engine.update(engine);
-
-    particle2 = new Particle2(mouseX,10,10);
 
     for (var i = 0; i < plinkos.length; i++) {  
       plinkos[i].display();
@@ -76,7 +73,7 @@
     }
 
     if(gameState === "start"){
-      if(frameCount%10===0){
+      if(frameCpont%10===0){
         particles.push(new Particle(random(width/2-30, width/2+30), 10,10));
       }
       
@@ -105,17 +102,14 @@
 
     playButton.hide();
 
+    particle.display();
+
     mousePressed();
-    mouseRealeased();
   }
 }
 
 function mousePressed(){
-particle = new Particle2(10,40,10);
-particle.display();
-particle.controller();
-}
-
-function mouseRealeased(){
-  particle.noControl();
+   if(gameState === "play"){
+    particle = new Particle2(mouseX,40,10);
+   }
 }
