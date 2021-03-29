@@ -8,6 +8,7 @@
   var particle2;
 
   var playButton;
+  var render;
 
   var divisions = [];
   var particles = [];
@@ -73,7 +74,7 @@
     }
 
     if(gameState === "start"){
-      if(frameCount%10===0){
+      if(frameCount%20===0){
         particles.push(new Particle(random(width/2-30, width/2+30), 10,10));
       }
       
@@ -102,8 +103,6 @@
 
     playButton.hide();
 
-    particle.display();
-
     mousePressed();
   }
 }
@@ -111,5 +110,6 @@
 function mousePressed(){
    if(gameState === "play"){
     particle = new Particle2(mouseX,40,10);
+    particle.display();
    }
 }
